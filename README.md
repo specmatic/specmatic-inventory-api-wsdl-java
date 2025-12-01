@@ -20,12 +20,12 @@ gradlew test --tests="io.specmatic.inventory.ContractTest"
 
 For **Unix based systems** and **Windows Powershell**:
 ```shell
-./gradlew test --tests="io.specmatic.inventory.ContractTestsUsingContainer"
+./gradlew test --tests="io.specmatic.inventory.ContractTestsUsingTestContainer"
 ```
 
 For **Windows Command Prompt**:
 ```shell
-gradlew test --tests="io.specmatic.inventory.ContractTestsUsingContainer"
+gradlew test --tests="io.specmatic.inventory.ContractTestsUsingTestContainer"
 ```
 
 ### 3. Using Docker
