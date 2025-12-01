@@ -1,11 +1,11 @@
 package com.component.orders.controllers
 
-import com.example.bff.AddInventoryRequest
-import com.example.bff.AddInventoryResponse
-import com.example.bff.GetInventoryRequest
-import com.example.bff.GetInventoryResponse
-import com.example.bff.ReduceInventoryRequest
-import com.example.bff.ReduceInventoryResponse
+import com.example.inventory.AddInventoryRequest
+import com.example.inventory.AddInventoryResponse
+import com.example.inventory.GetInventoryRequest
+import com.example.inventory.GetInventoryResponse
+import com.example.inventory.ReduceInventoryRequest
+import com.example.inventory.ReduceInventoryResponse
 import org.springframework.ws.server.endpoint.annotation.Endpoint
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot
 import org.springframework.ws.server.endpoint.annotation.RequestPayload
@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap
 class InventoryEndpoint {
 
     companion object {
-        const val NAMESPACE_URI: String = "http://www.example.com/bff"
+        const val NAMESPACE_URI: String = "http://www.example.com/inventory"
     }
 
     private val inventoryStore: ConcurrentHashMap<Int, Int> = ConcurrentHashMap()
