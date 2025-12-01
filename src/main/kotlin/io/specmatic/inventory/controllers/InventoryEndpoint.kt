@@ -21,6 +21,10 @@ class InventoryEndpoint {
 
     private val inventoryStore: ConcurrentHashMap<Int, Int> = ConcurrentHashMap()
 
+    init {
+        (0..1000).forEach { inventoryStore[it] = 100 }
+    }
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AddInventoryRequest")
     @ResponsePayload
     fun addInventory(@RequestPayload request: AddInventoryRequest): AddInventoryResponse {
