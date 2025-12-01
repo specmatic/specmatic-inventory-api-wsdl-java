@@ -1,4 +1,4 @@
-package com.component.orders.controllers
+package io.specmatic.inventory.controllers
 
 import com.example.inventory.AddInventoryRequest
 import com.example.inventory.AddInventoryResponse

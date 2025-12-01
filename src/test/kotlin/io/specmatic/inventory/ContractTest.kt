@@ -1,4 +1,4 @@
-package com.component.orders
+package io.specmatic.inventory
 
 import io.specmatic.stub.ContractStub
 import io.specmatic.stub.createStub
@@ -32,4 +32,3 @@ class ContractTests : SpecmaticContractTest {
         }
     }
 }
-

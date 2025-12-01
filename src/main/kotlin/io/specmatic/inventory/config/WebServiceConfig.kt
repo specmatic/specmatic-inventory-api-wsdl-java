@@ -1,4 +1,4 @@
-package com.component.orders.config
+package io.specmatic.inventory.config
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean
 import org.springframework.context.ApplicationContext

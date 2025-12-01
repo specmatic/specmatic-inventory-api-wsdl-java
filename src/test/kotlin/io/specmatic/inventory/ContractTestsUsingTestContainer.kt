@@ -1,9 +1,9 @@
-package com.component.orders
+package io.specmatic.inventory
 
 import com.github.dockerjava.api.model.ExposedPort
 import com.github.dockerjava.api.model.PortBinding
 import com.github.dockerjava.api.model.Ports
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIf
 import org.springframework.boot.test.context.SpringBootTest
@@ -78,6 +78,6 @@ class ContractTestsUsingTestContainer {
     fun specmaticContractTest() {
         testContainer.start()
         val hasSucceeded = testContainer.logs.contains("Failures: 0")
-        assertThat(hasSucceeded).isTrue()
+        Assertions.assertThat(hasSucceeded).isTrue()
     }
 }
