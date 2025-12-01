@@ -23,7 +23,7 @@ wsdl2java {
     wsdlDir.set(layout.projectDirectory.dir("wsdls"))
     includes.set(
         [
-            "order_api.wsdl", "product_bff_search.wsdl"
+            "inventory.wsdl"
         ]
     )
     generatedSourceDir.set(layout.projectDirectory.dir("src/generated/wsdl2java"))
