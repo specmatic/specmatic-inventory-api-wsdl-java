@@ -34,7 +34,7 @@ jobs:
       run: chmod +x ./gradlew
       
     - name: Build and test
-      run: ./gradlew clean test --no-daemon
+      run: ./gradlew clean test assemble --no-daemon
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -99,10 +99,6 @@ jobs:
         name: ${{ matrix.os }}-${{ matrix.java }}-html-report
         path: build/reports/specmatic/html
 
-    - name: List files
-      run: |
-        find .
-
     - name: Upload build/libs for Docker
       uses: actions/upload-artifact@v4
       with:
@@ -124,10 +120,6 @@ jobs:
         with:
           name: build-libs
           path: build/libs
-
-      - name: List files
-        run: |
-          find .
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
