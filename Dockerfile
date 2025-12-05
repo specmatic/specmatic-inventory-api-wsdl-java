@@ -9,6 +9,6 @@ WORKDIR /app
 
 EXPOSE 8090
 
-COPY build/libs/specmatic-order-inventory-wsdl-java-1.0.jar /app/order-inventory.jar
+COPY build/libs/specmatic-inventory-api-wsdl-java-1.0.jar /app/inventory-api.jar
 
-CMD java -jar order-inventory.jar
+CMD java -jar inventory-api.jar
