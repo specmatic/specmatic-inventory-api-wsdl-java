@@ -99,6 +99,10 @@ jobs:
         name: ${{ matrix.os }}-${{ matrix.java }}-html-report
         path: build/reports/specmatic/html
 
+    - name: List files
+      run: |
+        find .
+
     - name: Upload build/libs for Docker
       uses: actions/upload-artifact@v4
       with:
