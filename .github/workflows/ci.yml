@@ -121,6 +121,10 @@ jobs:
           name: build-libs
           path: build/libs
 
+      - name: List files
+        run: |
+          find .
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
