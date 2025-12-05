@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /app
 
-EXPOSE 8090
+EXPOSE 8095
 
 COPY build/libs/specmatic-inventory-api-wsdl-java-1.0.jar /app/inventory-api.jar
 
