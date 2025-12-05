@@ -48,12 +48,11 @@ jacocoTestReport {
 def specmatic_version = "2.33.0"
 
 dependencies {
-    implementation platform('org.springframework.boot:spring-boot-dependencies:3.5.7')
+    implementation platform('org.springframework.boot:spring-boot-dependencies:3.5.8')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'jakarta.activation:jakarta.activation-api:2.1.4'
-//    implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.6'
     implementation 'jakarta.validation:jakarta.validation-api:3.1.1'
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
     implementation 'jakarta.xml.soap:jakarta.xml.soap-api:3.0.2'
@@ -61,9 +60,7 @@ dependencies {
     implementation 'com.sun.xml.messaging.saaj:saaj-impl:3.0.4'
     implementation 'org.springframework.ws:spring-ws-core:4.1.2'
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.4'
-    // https://mvnrepository.com/artifact/org.glassfish.hk2/osgi-resource-locator
     implementation group: 'org.glassfish.hk2', name: 'osgi-resource-locator', version: '3.0.0'
-//    implementation 'com.sun.xml.ws:jaxws-ri:4.0.3'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation "io.specmatic:junit5-support:${specmatic_version}"
