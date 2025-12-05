@@ -19,35 +19,10 @@ import org.testcontainers.junit.jupiter.Testcontainers
 class ContractTestsUsingTestContainer {
     companion object {
         private const val APPLICATION_HOST = "host.docker.internal"
-        private const val APPLICATION_PORT = 8080
-        private const val HTTP_STUB_PORT = 9000
+        private const val APPLICATION_PORT = 8095
 
         @JvmStatic
         fun isNonCIOrLinux(): Boolean = System.getenv("CI") != "true" || System.getProperty("os.name").lowercase().contains("linux")
-
-        @Container
-        private val stubContainer: GenericContainer<*> =
-            GenericContainer("specmatic/specmatic")
-                .withCommand(
-                    "virtualize",
-                    "--examples=examples",
-                    "--port=$HTTP_STUB_PORT",
-                ).withCreateContainerCmdModifier { cmd ->
-                    cmd.hostConfig?.withPortBindings(
-                        PortBinding(Ports.Binding.bindPort(HTTP_STUB_PORT), ExposedPort(HTTP_STUB_PORT)),
-                    )
-                }.withExposedPorts(HTTP_STUB_PORT)
-                .withFileSystemBind(
-                    "./wsdls",
-                    "/usr/src/app/wsdls",
-                    BindMode.READ_ONLY,
-                )
-                .withFileSystemBind(
-                    "./specmatic.yaml",
-                    "/usr/src/app/specmatic.yaml",
-                    BindMode.READ_ONLY,
-                ).waitingFor(Wait.forHttp("/actuator/health").forStatusCode(200))
-                .withLogConsumer { print(it.utf8String) }
 
         private val testContainer: GenericContainer<*> =
             GenericContainer("specmatic/specmatic")
