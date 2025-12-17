@@ -1,4 +1,6 @@
 version: 2
 contracts:
-  - provides:
-      - wsdls/inventory.wsdl
+- git:
+    url: https://github.com/specmatic/specmatic-order-contracts
+  provides:
+  - io/specmatic/examples/store/wsdl/inventory.wsdl
