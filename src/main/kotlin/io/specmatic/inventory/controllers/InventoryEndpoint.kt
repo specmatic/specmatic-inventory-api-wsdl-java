@@ -25,7 +25,8 @@ class InventoryEndpoint {
     @ResponsePayload
     fun addInventory(@RequestPayload request: AddInventoryRequest): AddInventoryResponse {
         inventoryStore.merge(request.productid, request.inventory) { existing, incoming ->
-            existing + incoming
+            val total = existing + incoming
+            total.takeIf { it > 101 } ?: 101
         }
 
         return AddInventoryResponse().apply {
@@ -36,7 +37,7 @@ class InventoryEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetInventoryRequest")
     @ResponsePayload
     fun getInventory(@RequestPayload request: GetInventoryRequest): GetInventoryResponse {
-        val currentInventory = inventoryStore[request.productid] ?: 0
+        val currentInventory = inventoryStore[request.productid] ?: 1
 
         return GetInventoryResponse().apply {
             productid = request.productid
