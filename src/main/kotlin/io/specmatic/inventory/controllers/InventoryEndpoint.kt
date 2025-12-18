@@ -37,7 +37,7 @@ class InventoryEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetInventoryRequest")
     @ResponsePayload
     fun getInventory(@RequestPayload request: GetInventoryRequest): GetInventoryResponse {
-        val currentInventory = inventoryStore[request.productid] ?: 1
+        val currentInventory = inventoryStore[request.productid]?.takeIf { it > 0 } ?: 1
 
         return GetInventoryResponse().apply {
             productid = request.productid
