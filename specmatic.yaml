@@ -1,6 +1,18 @@
-version: 2
-contracts:
-- git:
-    url: https://github.com/specmatic/specmatic-order-contracts
-  provides:
-  - io/specmatic/examples/store/wsdl/inventory.wsdl
+version: 3
+systemUnderTest:
+  service:
+    $ref: "#/components/services/inventory-service"
+
+components:
+  services:
+    inventory-service:
+      definitions:
+        - definition:
+            source:
+              git:
+                url: https://github.com/specmatic/specmatic-order-contracts
+            specs:
+              - io/specmatic/examples/store/wsdl/inventory.wsdl
+      runOptions:
+        openapi:
+          baseUrl: http://localhost:8095
