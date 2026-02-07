@@ -14,5 +14,5 @@ components:
             specs:
               - io/specmatic/examples/store/wsdl/inventory.wsdl
       runOptions:
-        openapi:
+        wsdl:
           baseUrl: http://localhost:8095
