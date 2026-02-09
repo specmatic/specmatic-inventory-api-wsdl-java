@@ -15,4 +15,13 @@ components:
               - io/specmatic/examples/store/wsdl/inventory.wsdl
       runOptions:
         wsdl:
-          baseUrl: http://localhost:8095
+          baseUrl: "{APP_URL:http://localhost:8095}"
+          filter: "PATH!='/health'"
+
+specmatic:
+  governance:
+    successCriteria:
+      minCoveragePercentage: 100
+      maxMissedOperationsInSpec: 0
+      enforce: true
+
