@@ -25,7 +25,7 @@ class ContractTestsUsingTestContainer {
         fun isNonCIOrLinux(): Boolean = System.getenv("CI") != "true" || System.getProperty("os.name").lowercase().contains("linux")
 
         private val testContainer: GenericContainer<*> =
-            GenericContainer("specmatic/specmatic")
+            GenericContainer("specmatic/specmatic:latest")
                 .withCommand(
                     "test",
                     "--host=$APPLICATION_HOST",
