@@ -15,7 +15,8 @@ import org.testcontainers.junit.jupiter.Testcontainers
 class ContractTestsUsingTestContainer {
     companion object {
         @JvmStatic
-        fun isNonCIOrLinux(): Boolean = System.getenv("CI") != "true" || System.getProperty("os.name").lowercase().contains("linux")
+        fun isNonCIOrLinux(): Boolean =
+            System.getenv("CI") != "true" || System.getProperty("os.name").lowercase().contains("linux")
 
         private val testContainer: GenericContainer<*> =
             GenericContainer("specmatic/specmatic:latest")
@@ -23,19 +24,11 @@ class ContractTestsUsingTestContainer {
                     "test"
                 )
                 .withFileSystemBind(
-                    "./wsdls",
-                    "/usr/src/app/wsdls",
-                    BindMode.READ_ONLY,
-                )
-                .withFileSystemBind(
-                    "./specmatic.yaml",
-                    "/usr/src/app/specmatic.yaml",
-                    BindMode.READ_ONLY,
-                ).withFileSystemBind(
-                    "./build/reports/specmatic",
-                    "/usr/src/app/build/reports/specmatic",
+                    ".",
+                    "/usr/src/app",
                     BindMode.READ_WRITE,
-                ).waitingFor(Wait.forLogMessage(".*Tests run:.*", 1))
+                )
+                .waitingFor(Wait.forLogMessage(".*Tests run:.*", 1))
                 .withNetworkMode("host")
                 .withLogConsumer { print(it.utf8String) }
     }

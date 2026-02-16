@@ -2,6 +2,8 @@ version: 3
 systemUnderTest:
   service:
     $ref: "#/components/services/inventory-service"
+    runOptions:
+      $ref: "#/components/runOptions/inventory-service-test"
 
 components:
   services:
@@ -13,10 +15,12 @@ components:
                 url: https://github.com/specmatic/specmatic-order-contracts
             specs:
               - io/specmatic/examples/store/wsdl/inventory.wsdl
-      runOptions:
-        wsdl:
-          baseUrl: "{APP_URL:http://localhost:8095}"
-          filter: "PATH!='/health'"
+  runOptions:
+    inventory-service-test:
+      wsdl:
+        type: test
+        baseUrl: "{APP_URL:http://localhost:8095}"
+        filter: "PATH!='/health'"
 
 specmatic:
   governance:

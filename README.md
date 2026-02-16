@@ -39,7 +39,7 @@ For **Unix based systems** and **Windows Powershell**, execute the following com
 
 ```shell
 # Run contract tests
-docker run --rm --network host -v "$(pwd):/usr/src/app" specmatic/specmatic:latest test --port=8095
+docker run --rm --network host -v "$(pwd):/usr/src/app" specmatic/specmatic:latest test
 ```
 
 For **Windows Command Prompt**, execute the following commands in separate terminals:
@@ -51,7 +51,7 @@ gradlew bootRun
 
 ```shell
 # Run contract tests
-docker run --rm --network host -v "%cd%:/usr/src/app" specmatic/specmatic:latest test --port=8095
+docker run --rm --network host -v "%cd%:/usr/src/app" specmatic/specmatic:latest test
 ```
 
 ## For More Info
