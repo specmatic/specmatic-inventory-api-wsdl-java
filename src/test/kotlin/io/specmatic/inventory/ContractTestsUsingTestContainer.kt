@@ -24,8 +24,12 @@ class ContractTestsUsingTestContainer {
                     "test"
                 )
                 .withFileSystemBind(
-                    ".",
-                    "/usr/src/app",
+                    "./specmatic.yaml",
+                    "/usr/src/app/specmatic.yaml",
+                    BindMode.READ_ONLY,
+                ).withFileSystemBind(
+                    "./build/reports/specmatic",
+                    "/usr/src/app/build/reports/specmatic",
                     BindMode.READ_WRITE,
                 )
                 .waitingFor(Wait.forLogMessage(".*Tests run:.*", 1))
